@@ -17,9 +17,9 @@ var MathX = (function () {
             let isFibonacci = false                     // переменная, в которой храним состояние является ли N числом из ряда Фиббоначи
 
             for (let i = 1; i <= num; i++) {            // запуск цикла подсчёта чисел Фибоначчи вплоть до заданного числа (num)
-                a = b;
-                b = c;
-                c = a + b;
+                a = b
+                b = c
+                c = a + b
                 if (c === num) {
                     result = `N-ое число в ряду Фибоначчи - ${i}`
                     isFibonacci = true                  // установка флага true, если число из ряда Фибоначчи
@@ -65,7 +65,7 @@ var MathX = (function () {
         allPrime: function (num) {
             const list = []                 // переменная, для хранения всех простых чисел
             for (let i = 2; i <= num; i++) {
-                let isPrime = true;         // переменная, в которой храним состояние простое число или нет
+                let isPrime = true          // переменная, в которой храним состояние простое число или нет
                 for (let j = 2; (j <= i / 2) && (isPrime === true); j = j + 1) {        // перебор всех делителей числа от 2 до i/2
                     if (i % j === 0) {
                         isPrime = false
