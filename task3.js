@@ -63,7 +63,6 @@ var MathX = (function () {
         },
 
         primeNum: function (num) {
-            const allPrime = []                         // декларация массива, куда происходит запись всех простых чисел вплоть до числа N
             for (let i = 2; i < num; i++) {
                 if (num % i === 0) {                    // проверка, есть ли у введённого числа делители
                     return console.log("Не простое");   // 
