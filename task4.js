@@ -18,12 +18,14 @@
 
 export function setWord(num, { nominative, genitiveS, genitiveP }) {
 
-    const endNum = num.toString().slice(-1) * 1     // определение последней цифры в числе (* 1 - преобразование обратно в число)
-    const dictionaryGenitiveS = [2, 3, 4]           // декларация словаря, который хранит окончание чисел для родительного падежа, единственного числа              
+    const endNum = Number(num.toString().slice(-1))     // определение последней цифры в числе (* 1 - преобразование обратно в число)
+    const dictionaryGenitiveS = [2, 3, 4]           // декларация словаря, который хранит окончание чисел для родительного падежа, единственного числа
+    const dictionaryGenitiveP = [5, 6, 7, 8, 9, 10] // декларация словаря, который хранит окончание чисел для родительного падежа, множественного числа
     switch (endNum) {
         case 1: return console.log(num + " " + nominative)      // если число заканчивается на 1, то выводим именительный падеж.
         case dictionaryGenitiveS.find(e => e === endNum): return console.log(num + " " + genitiveS)     // проход по словарю, если число заканчивается на число из словаря, то вывод родительного падежа, ед. число
-        default: return console.log(num + " " + genitiveP)      // если число не попадает под 2 правил выше - вывод родительного падежа, мн. числа.
+        case dictionaryGenitiveP.find(e => e === endNum): return console.log(num + " " + genitiveP)     // если число не попадает под 2 правил выше - вывод родительного падежа, мн. числа.
+        default: return console.log(`Неопределённое количество ${genitiveP}`)                           // при некорректных входных данных ошибки не возникает
     }
 
 }
@@ -32,5 +34,6 @@ setWord(3, { nominative: "сообщение", genitiveS: "сообщения", 
 setWord(5, { nominative: "пилюля", genitiveS: "пилюли", genitiveP: "пилюль" })
 setWord(-135, { nominative: "чапельник", genitiveS: "чапельника", genitiveP: "чапельников" })
 setWord("73", { nominative: "панда", genitiveS: "панды", genitiveP: "панд" })
-setWord("-1", { nominative: "окно", genitiveS: "окна", genitiveP: "окон" })
-setWord("049", { nominative: "лещ", genitiveS: "леща", genitiveP: "лещей" })
+setWord("-51", { nominative: "окно", genitiveS: "окна", genitiveP: "окон" })
+setWord(NaN, { nominative: "лещ", genitiveS: "леща", genitiveP: "лещей" })
+setWord(true, { nominative: "литр", genitiveS: "литра", genitiveP: "литров" })
