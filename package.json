@@ -1,0 +1,12 @@
+{
+  "name": "l1",
+  "version": "1.0.0",
+  "description": "l1",
+  "main": "task4.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yury Odintsov",
+  "license": "ISC"
+}
