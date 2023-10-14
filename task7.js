@@ -29,7 +29,6 @@ const executor = () => {
     for (let i = 0; i < arr.length; i++) {
         setTimeout(() => {
             arr[i]();
-            console.log(i)
         }, 1000 * i);
     }
 }
