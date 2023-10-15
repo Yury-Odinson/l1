@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>task 14</title>
+</head>
+
+<body>
+    <div class="container">
+        <a href="./index.html">
+            <button>Назад, к заданиям</button>
+        </a>
+        <span class="task__description"> Задача на промисы: напишите функцию, которая принимает URL изображения и
+            возвращает промис, который разрешается с данными об изображении, когда оно загружено.
+            Когда говорится "промис разрешается с данными об изображении", это означает,
+            что промис должен быть успешно выполнен (resolved) с данными об изображении после того,
+            как изображение будет загружено.
+        </span>
+
+        <div class="task14-example">
+            <span>Пример рабочей ссылки:</span>
+            <span>https://sun9-67.userapi.com/impf/c849532/v849532919/e576f/8G2NyBvtr70.jpg?size=640x480&quality=96&sign=4f67212333d6a0b9f141c33556f29cab&type=album</span>
+        </div>
+
+        <label class="task14-label">
+            <input id="task14-input" type="text" placeholder="вставьте ссылку на изображение">
+            <button id="load__img" class="label__button">Загрузить</button>
+        </label>
+
+
+        <div class="container-image">
+            <img id="uploaded-image">
+        </div>
+
+
+
+    </div>
+    <script src="./task14.js"></script>
+</body>
+
+</html>

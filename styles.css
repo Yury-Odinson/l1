@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    background-color: #e7e7e765;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container {
+    margin: 150px auto;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 700px;
+    background-color: #fff;
+    border-radius: 20px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.container-label {
+    padding: 10px;
+    display: flex;
+    gap: 40px;
+    width: fit-content;
+    border-bottom: 1px solid #9c9c9c65;
+}
+
+
+.task__description {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: justify;
+    text-indent: 2.5em;
+}
+
+.task14-example {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.task14-label {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+#task14-input{
+    padding: 10px 20px;
+    border: none;
+    width: 80%;
+    background-color: #e7e7e765;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.label__button {
+    width: 20%;
+}
+.container-image {
+    display: flex;
+    justify-content: center;
+}
+
+#uploaded-image {
+
+    max-width: 100%;
+}
