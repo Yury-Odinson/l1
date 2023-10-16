@@ -30,7 +30,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 700px;
+    max-width: 700px;
     background-color: #fff;
     border-radius: 20px;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -42,7 +42,8 @@ button {
     padding: 10px;
     display: flex;
     gap: 40px;
-    width: fit-content;
+    width: 100%;
+    justify-content: space-between;
     border-bottom: 1px solid #9c9c9c65;
 }
 
@@ -66,7 +67,7 @@ button {
     gap: 20px;
 }
 
-#task14-input{
+#task14-input {
     padding: 10px 20px;
     border: none;
     width: 80%;
@@ -78,6 +79,7 @@ button {
 .label__button {
     width: 20%;
 }
+
 #container-image {
     display: flex;
     justify-content: center;
@@ -85,4 +87,39 @@ button {
 
 .loaded-image {
     max-width: 100%;
+}
+
+
+
+/* Task 25 styles */
+
+.container-doby {
+    padding: 40px;
+    display: flex;
+    border-radius: 20px;
+    background-color: #e7e7e765;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.someLabel {
+    
+    display: flex;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.someInput {
+    padding: 15px 20px;
+    width: 50%;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    background-color: #3cf3d465;
+}
+
+.someButtonStyle {
+    background-color: #5bf57065;
+    border-radius: 0 6px 6px 0;
+    width: 50%;
 }
