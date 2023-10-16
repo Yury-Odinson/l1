@@ -78,12 +78,11 @@ button {
 .label__button {
     width: 20%;
 }
-.container-image {
+#container-image {
     display: flex;
     justify-content: center;
 }
 
-#uploaded-image {
-
+.loaded-image {
     max-width: 100%;
 }
