@@ -29,7 +29,7 @@ loadButton.addEventListener("click", () => {
                 containerImage.innerHTML = ""         // при успешной загрузке сперва очистка содержимого
                 containerImage.appendChild(img)       // добавление загруженного изображения
             })
-    } else image.innerHTML = "Введите запрос!"
+    } else containerImage.innerHTML = "Введите запрос!"
 })
 
 // 2-й вариант с вариантом async/await
