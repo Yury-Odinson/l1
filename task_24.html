@@ -27,12 +27,11 @@
         <div class="container-body">
             <div class="container-pagination" id="pagination">
             </div>
-            <div class="container-body-item" id="users-data"></div>
+            <div class="container-body-item"></div>
 
 
             <table>
-                <thead>User</thead>
-                <tbody>
+                <thead>
                     <tr>
                         <td>Имя</td>
                         <td>Фамилия</td>
@@ -42,6 +41,39 @@
                         <td>Штат</td>
                         <td>Индекс</td>
                     </tr>
+                    <tr>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortFnameA"></button>
+                            <button class="button__sort" id="sortFnameD"></button>
+                        </td>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortLnameA"></button>
+                            <button class="button__sort" id="sortLnameD"></button>
+                        </td>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortPhoneA"></button>
+                            <button class="button__sort" id="sortPhoneD"></button>
+                        </td>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortAddressA"></button>
+                            <button class="button__sort" id="sortAddressD"></button>
+                        </td>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortCityA"></button>
+                            <button class="button__sort" id="sortCityD"></button>
+                        </td>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortStateA"></button>
+                            <button class="button__sort" id="sortStateD"></button>
+                        </td>
+                        <td class="sort-settings">
+                            <button class="button__sort" id="sortZipA"></button>
+                            <button class="button__sort" id="sortZipD"></button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="users-data">
+
                 </tbody>
             </table>
 

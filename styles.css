@@ -98,7 +98,7 @@ span {
 .container-24 {
     margin: 0 auto;
     padding: 20px 40px;
-    max-width: 740px;
+    max-width: 940px;
     background-color: #fff;
     border-radius: 20px;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -117,19 +117,27 @@ span {
 
 table {
     width: 100%;
+    table-layout: auto;
 }
 
-tr {
-    display: flex;
-    justify-content: space-between;
+.button__sort {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    background-image: url(./img/sortA.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+.button__sort:last-child {
+    
+    background-image: url(./img/sortD.png);
+}
+
 tr:nth-child(even) {
     background-color: #cfcfcf65;
 }
-
-
-
-
 
 .user-item {
     margin: 40px 0;
