@@ -7,7 +7,7 @@
 //      2. массив из классов (потому что классов может быть несколько)
 //      3. объект из атрибутов (например id, placeholder, value и т.д.)
 
-function createElement(block, cssClass = [], attrs = {}) {
+export function createElement(block, cssClass = [], attrs = {}) {
     const element = document.createElement(block)       // создание DOM элемента
     element.classList.add(...cssClass)                  // присваение классов элементу
     for (const key in attrs) {                  // нахождение всех ключей в передаваемых атрибутов (например id, placeholder и т.д)
@@ -25,7 +25,7 @@ const bodyButton = createElement("button", ["button", "someButtonStyle"], { id: 
 
 bodyButton.textContent = "Send"     // присвоение текста на кнопку
 
-mainContainer.appendChild(bodyBlock)    // добавление созданных элементов в контейнер
+// mainContainer.appendChild(bodyBlock)    // добавление созданных элементов в контейнер
 bodyBlock.appendChild(bodyLabel)
 bodyLabel.appendChild(bodyInput)
 bodyLabel.appendChild(bodyButton)
