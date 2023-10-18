@@ -1,7 +1,6 @@
+import { createElement } from "./task_25.js"
 // Разработайте страницу, отображающую таблицу с данными. 
 // Данные необходимо подгружать из этого источника.
-
-import { createElement } from "./task_25.js"
 
 // Требования:
 // данные должны загружаться при загрузке страницы
@@ -27,11 +26,10 @@ const sortStateD = document.getElementById("sortStateD")
 const sortZipA = document.getElementById("sortZipA")
 const sortZipD = document.getElementById("sortZipD")
 
-const test = [sortFNameA, sortFNameD, sortLNameA, sortLNameD, sortPhoneA, sortPhoneD, sortAddressA, sortAddressD, sortCityA, sortCityD, sortStateA, sortStateD, sortZipA, sortZipD]
+const sortButtons = [sortFNameA, sortFNameD, sortLNameA, sortLNameD, sortPhoneA, sortPhoneD, sortAddressA, sortAddressD, sortCityA, sortCityD, sortStateA, sortStateD, sortZipA, sortZipD]
 
 let resultData = []     // декларация массива, для общего списка
 let resultDataPage = [] // декларация массива, для подмассива (для пагинации)
-// let 
 
 async function getData(url) {
     const response = await fetch(url).then(response => {
@@ -81,24 +79,21 @@ function pagination(arr) {
     return resultDataPage = thisPage
 }
 
-
-function sort(arr) {
-    let result = []
-
+// функция для установки параметров сортировки
+function setSort(arr) {
     let sortMethod = ""
-
-    test.map(element => {
+    sortButtons.map(element => {
         element.addEventListener("click", () => {
-            // console.log(element.id)
             sortMethod = element.id;
-            console.log(sortMethod)
-            // sort(arr, sortMethod)
+            return sort(arr, sortMethod)
         })
     })
-    console.log(sortMethod)
-    switch (sortMethod) {
-        // case "sortFnameA": result = arr.sort((a, b) => a.fname > b.fname ? 1 : -1);
-        case "sortFnameA": console.log("sg");
+}
+
+function sort(arr, method) {
+    let result = []
+    switch (method) {
+        case "sortFnameA": result = arr.sort((a, b) => a.fname > b.fname ? 1 : -1);
             break;
         case "sortFnameD": result = arr.sort((a, b) => a.fname < b.fname ? 1 : -1);
             break;
@@ -127,13 +122,12 @@ function sort(arr) {
         case "sortZipD": result = arr.sort((a, b) => a.zip < b.zip ? 1 : -1);
             break;
         default: return arr     // при других вариантах сортировка не происходит
-        // default: return console.log("asdfg")     // при других вариантах сортировка не происходит
     }
-    // console.log(result)
     return drawData(result)
 }
+
 getData(dataURL).then(() => {
     pagination(resultData)
     drawData(resultDataPage)    // отрисовка первых значений по умолчанию, после загрузки всех данных
-    sort(resultDataPage)
+    setSort(resultDataPage)
 })
