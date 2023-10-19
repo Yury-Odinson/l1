@@ -1,51 +1,37 @@
 const container = document.getElementById("main-task26")
 
-// const allElements = [...container.childNodes]
-
-const firstElement = document.getElementById("first")
-const lastElement = document.getElementById("last")
-
-// console.log(allElements)
+const firstElement = document.getElementById("first")               // первый элемент для рекурсии
+const fifthElement = document.getElementById("fifth")               // второй элемент для рекурсии
+const blocks = document.querySelectorAll(".block")                  // все элементы, подвергающиеся рекурсии для обнуления стилей
+const buttonStart1 = document.getElementById("button__recursion1")  // кнопка запуска первого варианта рекурсии
+const buttonStart2 = document.getElementById("button__recursion2")  // кнопка запуска второго варианта рекурсии
 
 function recursion(element) {
 
     let currentElement = element
 
-    while (currentElement.children) {
-        // console.log(currentElement)
-        const children = [...currentElement.children]
-        // console.log(children.length)
+    console.log(currentElement)
+
+    while (currentElement) {
+        currentElement.style.color = "red"
+        children = [...currentElement.children] // деструктуризация дочерних элементов, для осуществления рекурсии по всех дочерним элементам
         console.log(children)
-        if (children.length > 0) {
-            for (let i = 0; i < children.length; i++) {
-                currentElement = children[i]
-                // console.log(children[i])
-            }
-        } else {
-            currentElement = children[0]
+        if (children.length > 1) {              // если дочерних элементов больше одного, то проход осуществляется по всем элементам
+            children.map(element => {
+                console.log(element)
+                element.style.color = "red"
+            })
         }
+        currentElement = children[0]
     }
-
-
-
-
-    // currentElement.style.color = "red";
-    // while (currentElement) {
-    //     const children = [...currentElement.children]
-    //     currentElement = children[0]
-    //     console.log(currentElement)
-
-    // for (let i = 0; i < children.length; i++) {
-    //     setTimeout(() => {
-    //         // currentElement.style.color = "red";
-    //         // children[i].classList.add("recursion-current");
-    //         children[i].style.color = "red";
-    //     }, 1000 * i);
-    // }
-    // }
-
-
 }
 
-recursion(firstElement)
-// recursion(lastElement)
+buttonStart1.addEventListener("click", () => {
+    blocks.forEach(element => element.style.color = "black")    // обнуление стилей, для визуализации рекурсии
+    document.body.style.color = "black"
+    recursion(firstElement)
+})
+buttonStart2.addEventListener("click", () => {
+    blocks.forEach(element => element.style.color = "black")
+    recursion(fifthElement)
+})
