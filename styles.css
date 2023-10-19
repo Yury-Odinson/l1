@@ -215,3 +215,13 @@ tr:nth-child(even) {
     border-radius: 0 6px 6px 0;
     width: 50%;
 }
+
+.recursion-current {
+    color: red;
+    background-color: #3cf3d465;
+}
+
+.block {
+    color: black;
+    background-color: #fff;
+}
