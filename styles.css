@@ -26,6 +26,7 @@ button {
 
 span {
     word-wrap: break-word;
+    text-align: justify;
 }
 
 .container {
