@@ -30,6 +30,7 @@ span {
 }
 
 .container {
+    position: relative;
     margin: 150px auto;
     padding: 20px 40px;
     display: flex;
@@ -112,6 +113,7 @@ span {
     flex-direction: column;
     gap: 20px;
 }
+
 .span__link {
     font-size: 12px;
 }
@@ -132,7 +134,7 @@ table {
 }
 
 .button__sort:last-child {
-    
+
     background-image: url(./img/sortD.png);
 }
 
@@ -173,9 +175,11 @@ tr:nth-child(even) {
 
 /* Task 25 styles */
 
-.container-doby {
+.container-body,
+.container-body27 {
     padding: 40px;
     display: flex;
+    justify-content: space-around;
     border-radius: 20px;
     background-color: #e7e7e765;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -196,7 +200,7 @@ tr:nth-child(even) {
 }
 
 .someLabel {
-    
+
     display: flex;
     width: 100%;
     /* border: 1px solid red; */
@@ -219,9 +223,15 @@ tr:nth-child(even) {
 .recursion-current {
     color: red;
     background-color: #3cf3d465;
+    /* background-color: #daeb91a2; */
 }
 
 .block {
     color: black;
     background-color: #fff;
+}
+
+.container-buttons-task26 {
+    display: flex;
+    justify-content: space-around;
 }
