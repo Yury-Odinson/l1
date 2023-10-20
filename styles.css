@@ -235,3 +235,61 @@ tr:nth-child(even) {
     display: flex;
     justify-content: space-around;
 }
+
+/* task 29*/
+
+.container-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    /* border: 1px solid red; */
+}
+
+.task-29__label {
+    margin: 0 auto;
+    width: 60%;
+    /* border: 1px solid green; */
+}
+
+
+
+.task-29__input {
+    padding: 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 6px;
+    border: none;
+}
+
+.container-buttons {
+    margin: 0 auto;
+    display: flex;
+    /* gap: 20px; */
+    width: 60%;
+    /* justify-content: space-between; */
+    /* border: 1px solid red; */
+}
+
+.task-29__button {
+    width: 100%;
+}
+.task-29__button:first-child {
+    width: 40%;
+    border-radius: 6px 0 0 6px;
+    background-color: #f3703ca8;
+}
+.task-29__button:last-child {
+    border-radius: 0 6px 6px 0;
+    background-color: #3cf388a8;
+}
+
+.container-body-data {
+    display: none;
+    font-size: 14px;
+}
+
+#data__uerName {
+    font-size: 20px;
+}
