@@ -176,6 +176,7 @@ tr:nth-child(even) {
 /* Task 25 styles */
 
 .container-body,
+.container-body17,
 .container-body27 {
     padding: 40px;
     display: flex;
@@ -266,10 +267,7 @@ tr:nth-child(even) {
 .container-buttons {
     margin: 0 auto;
     display: flex;
-    /* gap: 20px; */
     width: 60%;
-    /* justify-content: space-between; */
-    /* border: 1px solid red; */
 }
 
 .task-29__button {
@@ -292,4 +290,39 @@ tr:nth-child(even) {
 
 #data__uerName {
     font-size: 20px;
+}
+
+.container-body17 {
+    gap: 20px;
+}
+.container-body17__item {
+    align-self: flex-end;
+    width: 50%;
+}
+
+#addresses__data {
+    width: 100%;
+    
+}
+
+.modal {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* border: 1px solid red; */
+    background-color: #fff;
+    border-radius: 20px;
+
+}
+
+.modal-content {
+    margin: 100px auto;
+}
+
+#modal__addressName {
+    font-weight: 700;
 }

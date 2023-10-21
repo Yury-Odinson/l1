@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css"
+        rel="stylesheet" />
+
+    <title>Task 17</title>
+</head>
+
+<body>
+
+    <div class="container" id="main">
+        <a href="./index.html">
+            <button>Назад, к заданиям</button>
+        </a>
+        <span>Необходимо реализовать простое поле ввода адреса с функцией геокодинга: пользователь вводит данные в поле
+            с помощью одного из геоинформационных сервисов (Яндекс.Карты, ДаДата, GraphHopper), подбирается адрес.
+            Найденные данные должны отображаться в выпадающем списке, из которого можно выбрать подходящее значение.
+
+            Реализовать дебоунсинг и защиту от троттлинга с помощью замыканий.
+        </span>
+
+
+
+
+        <div class="container-body17">
+            <label class="container-body17__item">
+                <span>Введите адрес</span>
+                <input id="input__address" name="address" type="text" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script
+                    src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
+            </label>
+
+            <div class="container-body17__item">
+                <span>Выберете адрес из списка</span>
+                <select id="addresses__data">
+                </select>
+            </div>
+
+        </div>
+
+        <span>Дебаунс реализовать невозможно, поскольку выбранная мною API подразумевает собой инпут в связке с двумя
+            подключаемыми скриптами, которые работаю по своей, внутренней логике. обернуть события на ввод в "чужой"
+            инпут не предоставляется возможным. <span style="font-size: 13px; font-style: italic;">во всяком случае для моего уровня :)</span></span>
+
+        <div class="modal">
+            <div class="modal-content">
+                <span>Добавить следующий адрес?</span>
+                <span id="modal__addressName"></span>
+                <div>
+                    <button id="modal__buttonNo">Нет</button>
+                    <button id="modal__buttonYes">Да</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./task_17.js"></script>
+</body>
+
+</html>
