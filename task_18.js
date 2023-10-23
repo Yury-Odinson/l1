@@ -1,6 +1,6 @@
 const ls__button = document.getElementById("lsSize__button")
 
-localStorage.setItem("test", "")
+localStorage.setItem("test", "")    // декларация и автоматическая очиста ls при обновлении страницы 
 
 ls__button.addEventListener("click", () => lsSize())
 
