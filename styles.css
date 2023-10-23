@@ -326,3 +326,10 @@ tr:nth-child(even) {
 #modal__addressName {
     font-weight: 700;
 }
+
+
+#auth__button {
+    padding: 10px;
+    width: 30%;
+    background-color: #3cdef3a8;
+}
