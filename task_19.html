@@ -20,11 +20,53 @@
         <button id="auth__button">Authorization</button>
 
 
+
+
+
         <div class="container-body">
+
+            <!-- <button id="load__button">Load posts</button> -->
+
         </div>
     </div>
 
+    <script type="text/javascript">
+        const blockPost = document.querySelector("container-body")
+        let hash = window.location.hash
+        let token = hash.substr(hash.indexOf('access_token=')).split('&')[0].split('=')[1]
+        // console.log(token)
 
+
+        var script = document.createElement('SCRIPT');
+        // script.src = "https://api.vk.com/method/wall.get?owner_id=tebya_zovyt&v=5.154&callback=callbackFunc";
+        script.src = `https://api.vk.com/method/wall.get?owner_id=1&v=5.154&access_token=${token}&count=20&callback=callbackFunc`;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        function callbackFunc(result) {
+            const response = result.response.items
+            console.log(response)
+            response.map(element => {
+                // console.log(element.attachments[0]?.photo?.sizes[2].url)
+                // console.log(element.text)
+                const post = document.createElement("div")
+                const postImg = document.createElement("img")
+                postImg.src = element.attachments[0]?.photo?.sizes[2].url
+
+                const postText = document.createElement("span")
+                postText.textContent = element.text
+
+                post.append(postImg, postText)
+                blockPost.appendChild(post)
+                // blockPost.append(post)
+
+                // const postImg = clone.querySelector("post__img")
+                // console.log(postText)
+                // postText.textContent = element.text
+                // postImg.src = element.attachments[0]?.photo?.sizes[2].url
+                // blockPost.appendChild(clone)
+            })
+
+        }
+    </script>
 
     <script src="./task_19.js"></script>
     <!-- <script type="application/javascript" src="https://oauth.vk.com/authorize?client_id=51776929&display=page&redirect_uri=http://localhost:5500/task_19.html/callback&scope=friends&response_type=token&v=5.131&state=123456"></script> -->
