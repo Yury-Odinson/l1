@@ -48,7 +48,8 @@
     </div>
 
     <script type="text/javascript">
-        const blockPost = document.querySelector(".container-body19")
+        const container = document.querySelector(".container19")
+        const bodyPosts = document.querySelector(".container-body19")
         let hash = window.location.hash
         let token = hash.substr(hash.indexOf('access_token=')).split('&')[0].split('=')[1]
 
@@ -56,28 +57,48 @@
         const containerBody = document.querySelector(".container-body19")
 
         var script = document.createElement('SCRIPT');
-        script.src = `https://api.vk.com/method/wall.get?owner_id=1&v=5.154&access_token=${token}&count=20&callback=callbackFunc`;
+        script.src = `https://api.vk.com/method/wall.get?owner_id=1&v=5.154&access_token=${token}&count=100&callback=callbackFunc`;
         document.getElementsByTagName("head")[0].appendChild(script);
         function callbackFunc(result) {
-            const response = result.response.items
-            response.map(element => {
-                const clone = template.content.cloneNode(true)
-                const postText = clone.querySelector(".post-item__text")
-                const postImg = clone.querySelector(".post-item__photo")
-                const postLikes = clone.querySelector(".post-item__likes")
-                const postReposts = clone.querySelector(".post-item__reposts")
-                const postViews = clone.querySelector(".post-item__views")
-                postImg.style.display = "none"
-                postText.textContent = element.text
-                postLikes.textContent = element.likes.count
-                postReposts.textContent = element.reposts.count
-                postViews.textContent = element.views.count
-                if (element.attachments[0]?.photo) {
-                    postImg.style.display = "block"
-                    postImg.src = element.attachments[0]?.photo?.sizes[4].url
+
+            const response = result.response.items              // массив всех постов
+            const pagesPost = []                                // заготовка массива разбитого на части (для пагинации)
+            let thisPage = localStorage.getItem("page") || 0    // текущая страница для рендера
+            console.log(response.length)
+            for (let i = 0; i < response.length; i += 5) {
+                pagesPost.push(response.slice(i, i + 5))
+            }
+
+            container.addEventListener("scroll", () => {
+                if (container.scrollHeight - container.scrollTop === container.clientHeight) {
+                    console.log("down")
+                    thisPage++
+                    renderPosts(thisPage)
+                    localStorage.setItem("page", thisPage)
                 }
-                blockPost.appendChild(clone)
             })
+
+            const renderPosts = (page) => {
+                pagesPost[page].map(element => {
+                    const clone = template.content.cloneNode(true)
+                    const postText = clone.querySelector(".post-item__text")
+                    const postImg = clone.querySelector(".post-item__photo")
+                    const postLikes = clone.querySelector(".post-item__likes")
+                    const postReposts = clone.querySelector(".post-item__reposts")
+                    const postViews = clone.querySelector(".post-item__views")
+                    postImg.style.display = "none"
+                    postText.textContent = element.text
+                    postLikes.textContent = element.likes.count
+                    postReposts.textContent = element.reposts.count
+                    postViews.textContent = element.views.count
+                    if (element.attachments[0]?.photo) {
+                        postImg.style.display = "block"
+                        postImg.src = element.attachments[0]?.photo?.sizes[4].url
+                    }
+                    bodyPosts.appendChild(clone)
+                })
+            }
+            renderPosts(thisPage)
         }
     </script>
 
