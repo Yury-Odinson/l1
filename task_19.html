@@ -71,7 +71,7 @@
 
             container.addEventListener("scroll", () => {
                 if (container.scrollHeight - container.scrollTop === container.clientHeight) {
-                    console.log("down")
+                    console.log(response)
                     thisPage++
                     renderPosts(thisPage)
                     localStorage.setItem("page", thisPage)
@@ -90,7 +90,7 @@
                     postText.textContent = element.text
                     postLikes.textContent = element.likes.count
                     postReposts.textContent = element.reposts.count
-                    postViews.textContent = element.views.count
+                    postViews.textContent = element.views?.count || 0           // после 5* поста отсутствует поле views
                     if (element.attachments[0]?.photo) {
                         postImg.style.display = "block"
                         postImg.src = element.attachments[0]?.photo?.sizes[4].url
