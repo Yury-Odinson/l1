@@ -11,65 +11,77 @@
 </head>
 
 <body>
-    <div class="container">
-        <a href="./index.html">
-            <button>Назад, к заданиям</button>
-        </a>
-        <span>Виджет ВК .</span>
+    <div class="container19">
+        <div class="container19-header">
+            <a href="./index.html">
+                <button>Назад, к заданиям</button>
+            </a>
 
-        <button id="auth__button">Authorization</button>
-
-
-
-
-
-        <div class="container-body">
-
-            <!-- <button id="load__button">Load posts</button> -->
-
+            <button id="auth__button">Authorization</button>
         </div>
+
+
+
+        <div class="container-body19">
+        </div>
+
+        <template id="post__template">
+            <div class="post-item">
+                <img class="post-item__photo" width="500" height="300">
+                <span class="post-item__text"></span>
+                <div class="post-item-footer">
+                    <div class="post-item-footer-like">
+                        <img src="./img/like.png" width="20" height="20">
+                        <span class="post-item__likes"></span>
+                    </div>
+                    <div class="post-item-footer-repost">
+                        <img src="./img/share.png" width="20" height="20">
+                        <span class="post-item__reposts"></span>
+                    </div>
+                    <div class="post-item-footer-views">
+                        <img src="./img/eye.png" width="20" height="20">
+                        <span class="post-item__views"></span>
+                    </div>
+                </div>
+            </div>
+        </template>
     </div>
 
     <script type="text/javascript">
-        const blockPost = document.querySelector("container-body")
+        const blockPost = document.querySelector(".container-body19")
         let hash = window.location.hash
         let token = hash.substr(hash.indexOf('access_token=')).split('&')[0].split('=')[1]
-        // console.log(token)
 
+        const template = document.getElementById("post__template")
+        const containerBody = document.querySelector(".container-body19")
 
         var script = document.createElement('SCRIPT');
-        // script.src = "https://api.vk.com/method/wall.get?owner_id=tebya_zovyt&v=5.154&callback=callbackFunc";
         script.src = `https://api.vk.com/method/wall.get?owner_id=1&v=5.154&access_token=${token}&count=20&callback=callbackFunc`;
         document.getElementsByTagName("head")[0].appendChild(script);
         function callbackFunc(result) {
             const response = result.response.items
-            console.log(response)
             response.map(element => {
-                // console.log(element.attachments[0]?.photo?.sizes[2].url)
-                // console.log(element.text)
-                const post = document.createElement("div")
-                const postImg = document.createElement("img")
-                postImg.src = element.attachments[0]?.photo?.sizes[2].url
-
-                const postText = document.createElement("span")
+                const clone = template.content.cloneNode(true)
+                const postText = clone.querySelector(".post-item__text")
+                const postImg = clone.querySelector(".post-item__photo")
+                const postLikes = clone.querySelector(".post-item__likes")
+                const postReposts = clone.querySelector(".post-item__reposts")
+                const postViews = clone.querySelector(".post-item__views")
+                postImg.style.display = "none"
                 postText.textContent = element.text
-
-                post.append(postImg, postText)
-                blockPost.appendChild(post)
-                // blockPost.append(post)
-
-                // const postImg = clone.querySelector("post__img")
-                // console.log(postText)
-                // postText.textContent = element.text
-                // postImg.src = element.attachments[0]?.photo?.sizes[2].url
-                // blockPost.appendChild(clone)
+                postLikes.textContent = element.likes.count
+                postReposts.textContent = element.reposts.count
+                postViews.textContent = element.views.count
+                if (element.attachments[0]?.photo) {
+                    postImg.style.display = "block"
+                    postImg.src = element.attachments[0]?.photo?.sizes[4].url
+                }
+                blockPost.appendChild(clone)
             })
-
         }
     </script>
 
     <script src="./task_19.js"></script>
-    <!-- <script type="application/javascript" src="https://oauth.vk.com/authorize?client_id=51776929&display=page&redirect_uri=http://localhost:5500/task_19.html/callback&scope=friends&response_type=token&v=5.131&state=123456"></script> -->
 </body>
 
 </html>

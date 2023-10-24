@@ -29,7 +29,8 @@ span {
     text-align: justify;
 }
 
-.container {
+.container,
+.container19 {
     position: relative;
     margin: 150px auto;
     padding: 20px 40px;
@@ -177,6 +178,7 @@ tr:nth-child(even) {
 
 .container-body,
 .container-body17,
+.container-body19,
 .container-body27 {
     padding: 40px;
     display: flex;
@@ -273,11 +275,13 @@ tr:nth-child(even) {
 .task-29__button {
     width: 100%;
 }
+
 .task-29__button:first-child {
     width: 40%;
     border-radius: 6px 0 0 6px;
     background-color: #f3703ca8;
 }
+
 .task-29__button:last-child {
     border-radius: 0 6px 6px 0;
     background-color: #3cf388a8;
@@ -295,6 +299,7 @@ tr:nth-child(even) {
 .container-body17 {
     gap: 20px;
 }
+
 .container-body17__item {
     align-self: flex-end;
     width: 50%;
@@ -302,7 +307,7 @@ tr:nth-child(even) {
 
 #addresses__data {
     width: 100%;
-    
+
 }
 
 .modal {
@@ -332,4 +337,64 @@ tr:nth-child(even) {
     padding: 10px;
     width: 30%;
     background-color: #3cdef3a8;
+}
+
+.container19 {
+    margin: 50px auto;
+    height: 700px;
+    overflow: scroll;
+}
+
+.container19-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-body19 {
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    flex-direction: column;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.post-item {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    background-color: #e7e7e765;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.post-item>* {
+    margin: 0 auto;
+}
+
+.post__text {
+    font-size: 13px;
+}
+
+.post-item-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.post-item-footer>* {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-item-footer-views {
+    justify-content: right;
+    width: 60%;
+    opacity: 0.3;
 }
