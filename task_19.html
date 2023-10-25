@@ -64,14 +64,17 @@
             const response = result.response.items              // массив всех постов
             const pagesPost = []                                // заготовка массива разбитого на части (для пагинации)
             let thisPage = localStorage.getItem("page") || 0    // текущая страница для рендера
-            console.log(response.length)
+            let thisPost = localStorage.getItem("viewPost") || "post-item__0"
+            let postId = 0
+
             for (let i = 0; i < response.length; i += 5) {
                 pagesPost.push(response.slice(i, i + 5))
             }
 
+            let lastViewPost = document.querySelector(".post-item")
+
             container.addEventListener("scroll", () => {
                 if (container.scrollHeight - container.scrollTop === container.clientHeight) {
-                    console.log(response)
                     thisPage++
                     renderPosts(thisPage)
                     localStorage.setItem("page", thisPage)
@@ -81,6 +84,9 @@
             const renderPosts = (page) => {
                 pagesPost[page].map(element => {
                     const clone = template.content.cloneNode(true)
+                    const postItem = clone.querySelector(".post-item")
+                    postItem.id = `post-item__${postId++}`
+                    localStorage.setItem("viewPost", postItem.id)
                     const postText = clone.querySelector(".post-item__text")
                     const postImg = clone.querySelector(".post-item__photo")
                     const postLikes = clone.querySelector(".post-item__likes")
@@ -98,7 +104,15 @@
                     bodyPosts.appendChild(clone)
                 })
             }
-            renderPosts(thisPage)
+
+            for (let i = 0; i <= thisPage; i++) {
+                renderPosts(i)
+
+            }
+
+            let viewedPost = document.getElementById(thisPost)  // определение просмотренного поста
+            viewedPost.scrollIntoView()
+
         }
     </script>
 
