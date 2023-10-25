@@ -20,8 +20,6 @@
             <button id="auth__button">Authorization</button>
         </div>
 
-
-
         <div class="container-body19">
         </div>
 
@@ -65,6 +63,7 @@
             const pagesPost = []                                // заготовка массива разбитого на части (для пагинации)
             let thisPage = localStorage.getItem("page") || 0    // текущая страница для рендера
             let thisPost = localStorage.getItem("viewPost") || "post-item__0"
+            const posts = []
             let postId = 1
 
             for (let i = 0; i < response.length; i += 5) {
@@ -90,10 +89,14 @@
                     renderPosts(thisPage)
                     localStorage.setItem("page", thisPage)
                 }
+
+                // localStorage.setItem("posts", posts)
+                console.log(posts)
             })
 
             const renderPosts = (page) => {
                 pagesPost[page].map(element => {
+                    posts.push(element)
                     const clone = template.content.cloneNode(true)
                     const postItem = clone.querySelector(".post-item")
                     postItem.id = `post-item__${postId++}`
@@ -111,7 +114,9 @@
                         postImg.style.display = "block"
                         postImg.src = element.attachments[0]?.photo?.sizes[4].url
                     }
+                    localStorage.setItem("posts", JSON.stringify(posts))
                     bodyPosts.appendChild(clone)
+
                 })
             }
 
@@ -125,6 +130,10 @@
     </script>
 
     <script src="./task_19.js"></script>
+    <script src="./task_20.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>
