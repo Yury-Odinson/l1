@@ -65,15 +65,26 @@
             const pagesPost = []                                // заготовка массива разбитого на части (для пагинации)
             let thisPage = localStorage.getItem("page") || 0    // текущая страница для рендера
             let thisPost = localStorage.getItem("viewPost") || "post-item__0"
-            let postId = 0
+            let postId = 1
 
             for (let i = 0; i < response.length; i += 5) {
                 pagesPost.push(response.slice(i, i + 5))
             }
 
-            let lastViewPost = document.querySelector(".post-item")
-
             container.addEventListener("scroll", () => {
+
+                // получение всех элементов на странице и определение, какой из них целиком отображается на странице
+                const posts = document.querySelectorAll('.post-item')
+                const windowHeight = window.innerHeight;
+                // перебор всеъ элементов и проверка полностью ли они видны
+                posts.forEach(element => {
+                    const elementRect = element.getBoundingClientRect()
+                    if (elementRect.top >= 0 && elementRect.bottom <= windowHeight) {
+                        localStorage.setItem("viewPost", element.id)
+                    }
+                })
+
+                // проверка на прокрутку "в пол"
                 if (container.scrollHeight - container.scrollTop === container.clientHeight) {
                     thisPage++
                     renderPosts(thisPage)
@@ -86,7 +97,6 @@
                     const clone = template.content.cloneNode(true)
                     const postItem = clone.querySelector(".post-item")
                     postItem.id = `post-item__${postId++}`
-                    localStorage.setItem("viewPost", postItem.id)
                     const postText = clone.querySelector(".post-item__text")
                     const postImg = clone.querySelector(".post-item__photo")
                     const postLikes = clone.querySelector(".post-item__likes")
@@ -107,12 +117,10 @@
 
             for (let i = 0; i <= thisPage; i++) {
                 renderPosts(i)
-
             }
 
-            let viewedPost = document.getElementById(thisPost)  // определение просмотренного поста
+            let viewedPost = document.getElementById(localStorage.getItem("viewPost"))  // определение просмотренного поста
             viewedPost.scrollIntoView()
-
         }
     </script>
 
