@@ -7,7 +7,7 @@
 //      2. массив из классов (потому что классов может быть несколько)
 //      3. объект из атрибутов (например id, placeholder, value и т.д.)
 
-function createElement(block, cssClass = [], attrs = {}) {  // при демонстрации task 24 добавить экспорт
+export function createElement(block, cssClass = [], attrs = {}) {  // при демонстрации task 24 добавить экспорт
     const element = document.createElement(block)       // создание DOM элемента
     element.classList.add(...cssClass)                  // присваение классов элементу
     for (const key in attrs) {                  // нахождение всех ключей в передаваемых атрибутов (например id, placeholder и т.д)
