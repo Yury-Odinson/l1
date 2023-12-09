@@ -13,7 +13,7 @@ export var getDate = (function () {
         },
 
         thisWeek: function () {
-            return `Это ${moment().weeksInYear()} неделя в году`
+            return `Это ${moment().week()} неделя в году`
         },
     }
 }());
